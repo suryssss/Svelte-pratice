@@ -9,11 +9,12 @@
 <style>
 	.container {
 		display: flex;
-		margin-left: 20px;
+		margin-left: 100px;
 		margin-right: 20px;
+        margin-top: 20px;
+        margin-bottom: 20px;
 		justify-content: space-between;
 		align-items: center;
-		margin: 20px;
 	}
 	nav {
 		display: flex;
@@ -30,6 +31,6 @@
 	}
 
 	header img {
-		height: 50px; /* optional */
+		height: 50px; 
 	}
 </style>
