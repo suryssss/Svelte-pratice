@@ -1,2 +1,35 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<div class="container">
+	<header><img src="logo.png" alt="nope" /></header>
+	<nav>
+		<a href="#">Settings</a>
+		<a href="#">Profile</a>
+	</nav>
+</div>
+
+<style>
+	.container {
+		display: flex;
+		margin-left: 20px;
+		margin-right: 20px;
+		justify-content: space-between;
+		align-items: center;
+		margin: 20px;
+	}
+	nav {
+		display: flex;
+		gap: 20px;
+	}
+
+	nav a {
+		text-decoration: none;
+		color: #333;
+	}
+
+	nav a:hover {
+		text-decoration: underline;
+	}
+
+	header img {
+		height: 50px; /* optional */
+	}
+</style>
