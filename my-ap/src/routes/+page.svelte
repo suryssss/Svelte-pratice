@@ -1,35 +1,57 @@
-<div class="container">
-	<header><img src="logo.png" alt="nope" /></header>
-	<nav>
-		<a href="#">Settings</a>
-		<a href="#">Profile</a>
-	</nav>
+<script lang="ts">
+    import { onMount } from "svelte";
+    import { runCanvas } from "./canvas";
+
+    const log: string[] = $state([]);
+
+    onMount(() => {
+        try {
+            runCanvas();
+        } catch (e) {
+            log.push(e?.toString ? e.toString() : JSON.stringify(e));
+        }
+    });
+</script>
+
+<div class="log">
+    {#each log as line}
+        <li>{line}</li>
+    {/each}
 </div>
 
+<canvas id="canvas"></canvas>
+
 <style>
-	.container {
-		display: flex;
-		margin-left: 20px;
-		margin-right: 20px;
-		justify-content: space-between;
-		align-items: center;
-		margin: 20px;
-	}
-	nav {
-		display: flex;
-		gap: 20px;
-	}
+    :global {
+        * {
+            font-family: system-ui, sans-serif;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        #canvas {
+            width: 100%;
+            height: 100%;
+        }
+        .log {
+            position: absolute;
+            top: 0rem;
+            left: 0rem;
+            min-width: 20rem;
+            min-height: 10rem;
+            max-height: 80%;
+            max-width: 80%;
+            resize: both;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            overflow-y: auto;
 
-	nav a {
-		text-decoration: none;
-		color: #333;
-	}
-
-	nav a:hover {
-		text-decoration: underline;
-	}
-
-	header img {
-		height: 50px; /* optional */
-	}
+            li {
+                list-style: none;
+                margin: 1rem;
+                font-size: 1.2rem;
+            }
+        }
+    }
 </style>
